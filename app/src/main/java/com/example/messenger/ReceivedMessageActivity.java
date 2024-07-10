@@ -1,6 +1,8 @@
 package com.example.messenger;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,13 @@ public class ReceivedMessageActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        TextView textMessage = findViewById(R.id.textViewMessage);
+
+        Intent intent = getIntent();
+        String message = intent.getStringExtra("message");
+
+        textMessage.setText(message);
+
     }
 }
